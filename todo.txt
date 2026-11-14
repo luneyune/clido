@@ -1,3 +1,4 @@
  - List tasks "clido today"
  - Create task "clido schedule 'Task text description' 22.10.2026"
-
+    . Where to save them? Flatfile
+    # <task name> <date> <?repeats weekly|monthly|yearly>
