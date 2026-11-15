@@ -20,7 +20,6 @@ clido edit <id> [options]
 Edit an existing task by ID. Omit a flag to leave it unchanged; pass an empty string to clear it.
 
 Flag	Description
---desc "<text>"	Change the description
 --at <when>	Change when (--at "" clears → today, no time)
 --category <name>	Change the category
 --repeat <pattern>	Change the repeat pattern (--repeat "" clears)
