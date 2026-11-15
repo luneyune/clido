@@ -1,2 +1,5 @@
 *.pdb
 *.exe
+*.db
+.zig-cache
+zig-pkg

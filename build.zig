@@ -3,11 +3,16 @@ const std = @import("std");
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+
+    const sqlite = b.dependency("sqlite", .{});
+
     const mod = b.addModule("CliDo", .{
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
+
+    mod.addImport("sqlite", sqlite.module("sqlite"));
 
     const exe = b.addExecutable(.{
         .name = "CliDo",

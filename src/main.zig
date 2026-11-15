@@ -1,5 +1,6 @@
 const std = @import("std");
 const c = @import("c_includes.zig");
+const sqlite = @import("sqlite");
 
 fn processArgs(a: std.process.Args, alloc: std.mem.Allocator) !void {
     var iterator = try a.iterateAllocator(alloc);
@@ -32,5 +33,8 @@ pub fn main(process: std.process.Init) !void {
 //        .tm_hour = 15,
 //    };
 //    std.debug.print("{}\n", .{c.mktime(&some_time)});
+    const db = try sqlite.Database.open(.{.path = "./my_db.db"});
+    try db.exec("CREATE TABLE widgets (id TEXT PRIMARY KEY, radius FLOAT)", .{});
+    db.close();
     try processArgs(process.minimal.args, process.gpa);
 }
